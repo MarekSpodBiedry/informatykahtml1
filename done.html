@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Wielofunkcyjna strona na informatyke skibidi</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anek+Odia:wght@100..800&family=WDXL+Lubrifont+TC&display=swap" rel="stylesheet">
+  <style>html,body{height:100%;margin:0;padding:0;font-family:Arial,sans-serif;background-color:#f9f9f9;color:#333;overflow-x:hidden;display:flex;justify-content:center;align-items:center}h1,h2{color:#004080}table{width:60%;border-collapse:collapse;margin-bottom:20px}table,th,td{border:1px solid #ccc}th,td{padding:8px 12px;text-align:left}th{background-color:#e0e0e0}ul,ol{margin-left:20px}img{max-width:100%;height:auto;margin-top:10px;border:1px solid #ccc}a{color:#06c;text-decoration:none}a:hover{text-decoration:underline}#toggleButton{position:fixed;top:10px;right:10px;z-index:1000}.next-button{background-color:#0A66C2;color:#fff;border:none;border-radius:100px;padding:10px 20px;cursor:pointer;font-weight:600;transition:all 0.2s ease}.next-button:hover{background-color:#16437E}.content-div{display:none;height:100vh;width:100vw;box-sizing:border-box;overflow:hidden}#time{display:flex;justify-content:center;align-items:center;background-color:#f9f9f9}#zegar{font-size:100px;color:#333;cursor:pointer;user-select:none;transition:font-family 0.3s ease}.arabic{font-family:"WDXL Lubrifont TC",sans-serif;font-weight:400;font-style:normal}.orija{margin-top:80px;font-family:"Anek Odia",sans-serif;font-optical-sizing:auto;font-weight:500;font-style:normal;font-variation-settings:"wdth" 100}#poland{display:flex;flex-direction:row;gap:20px;padding:20px;overflow:auto;scrollbar-width:none;-ms-overflow-style:none}#poland::-webkit-scrollbar{display:none}#left-side,#right-side{flex:1;display:flex;flex-direction:column;gap:20px}#calculator,#hangman{display:flex;align-items:center;justify-content:center;padding:0}#calculator iframe,#hangman iframe{width:100%;height:100vh;border:none}html,body{height:100%;margin:0;padding:0;font-family:Arial,sans-serif;background-color:#f9f9f9;color:#333;display:flex;justify-content:center;align-items:center;overflow:hidden}#zegar{font-size:100px;cursor:pointer;user-select:none;transition:font-family 0.3s ease}.arabic{font-family:"WDXL Lubrifont TC",sans-serif;font-weight:400;font-style:normal}.orija{font-family:"Anek Odia",sans-serif;font-optical-sizing:auto;font-weight:500;font-style:normal;font-variation-settings:"wdth" 100}.digit{display:inline-block;width:.7em;text-align:center;font-feature-settings:"tnum";line-height:1;height:1em;vertical-align:middle}.pipe{display:inline-block;text-align:center;margin-top:-12px;user-select:none}</style>
+
+  <script>let isOrija=!1;function odliczanie(immediate=!1){const zegar=document.getElementById("zegar");const dzisiaj=new Date();let dzien=dzisiaj.getDate().toString().padStart(2,'0');let miesiac=(dzisiaj.getMonth()+1).toString().padStart(2,'0');let rok=dzisiaj.getFullYear().toString();let godzina=dzisiaj.getHours().toString().padStart(2,'0');let minuta=dzisiaj.getMinutes().toString().padStart(2,'0');let sekunda=dzisiaj.getSeconds().toString().padStart(2,'0');let timeStr=`${dzien}/${miesiac}/${rok} | ${godzina}:${minuta}:${sekunda}`;if(isOrija){timeStr=timeStr.replace(/\d/g,d=>String.fromCharCode(0x0B66+Number(d)))}
+zegar.innerHTML=[...timeStr].map(char=>{if(char==='|'){return isOrija?`<span class="digit pipe">${char}</span>`:`<span class="digit">${char}</span>`}else{return `<span class="digit">${char}</span>`}}).join('');if(!immediate){setTimeout(()=>odliczanie(),1000)}}
+document.addEventListener("DOMContentLoaded",()=>{const zegar=document.getElementById("zegar");zegar.addEventListener("click",()=>{isOrija=!isOrija;zegar.className=isOrija?"orija":"arabic";odliczanie(!0)})})</script>
+</head>
+<body onload="odliczanie();">
+
+
+<div id="toggleButton">
+  <button class="next-button">Next</button>
+</div>
+
+<div id="poland" class="content-div">
+  <div id="left-side">
+<div>
+    <h2>Podstawowe dane</h2>
+    <table>
+        <tr>
+            <th>Atrybut</th>
+            <th>Wartość</th>
+        </tr>
+        <tr>
+            <td>Stolica</td>
+            <td>Warszawa</td>
+        </tr>
+        <tr>
+            <td>Język urzędowy</td>
+            <td>Polski</td>
+        </tr>
+        <tr>
+            <td>Liczba ludności</td>
+            <td>około 38 milionów</td>
+        </tr>
+        <tr>
+            <td>Powierzchnia</td>
+            <td>322 575 km²</td>
+        </tr>
+    </table>
+</div>
+
+<div>
+    <h2>Symbole narodowe</h2>
+    <ul>
+        <li>Flaga biało-czerwona</li>
+        <li>Godło z orłem białym</li>
+        <li>Hymn: "Mazurek Dąbrowskiego"</li>
+    </ul>
+</div>
+
+<div>
+    <h2>Największe miasta</h2>
+    <ol>
+        <li>Warszawa</li>
+        <li>Kraków</li>
+        <li>Łódź</li>
+        <li>Wrocław</li>
+        <li>Poznań</li>
+    </ol>
+</div>
+</div>
+
+<div id="right-side">
+<div>
+    <h2>Zdjęcie</h2>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/9/9d/Poland_CIA_map_PL.png" alt="Mapa Polski - niezaładowana">
+</div>
+
+<div>
+    <h2>Dodatkowe informacje</h2>
+    <p>Źródło:  
+        <a href="https://pl.wikipedia.org/wiki/Polska">Wikipedia - Polska</a>
+    </p>
+</div>
+</div>
+</div>
+<div id="time" class="content-div">
+    <div id="zegar" class="arabic"></div>
+</div>
+<div id="calculator" class="content-div">
+    
+<iframe frameborder="0" srcdoc='<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>body{background-color:#f0fff0;display:flex;justify-content:center;align-items:center;height:100vh;margin:0;font-family:"Segoe UI",Tahoma,Geneva,Verdana,sans-serif}.calculator{width:280px;background-color:#d9f2d9;border:2px solid #a5d6a7;border-radius:10px;padding:20px;box-shadow:0 4px 10px rgb(46 125 50 / .3)}#display{width:100%;padding:12px;font-size:20px;margin-bottom:15px;border:2px solid #a5d6a7;border-radius:8px;background-color:#e8f5e9;color:#2e7d32;box-sizing:border-box;font-weight:600;user-select:text}.buttons{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}button{padding:14px;font-size:18px;border:none;border-radius:8px;cursor:pointer;user-select:none;font-weight:600;transition:background-color 0.2s ease;color:#fff}button.number{background-color:#4caf50;color:#fff;box-shadow:0 3px 6px rgb(76 175 80 / .4)}button.number:hover{background-color:#388e3c}button.operator{background-color:#a5d6a7;color:#1b5e20;box-shadow:0 3px 6px rgb(165 214 167 / .6)}button.operator:hover{background-color:#81c784}button.clear,button.equals{background-color:#2e7d32;box-shadow:0 3px 8px rgb(46 125 50 / .7);color:#fff}button.clear:hover,button.equals:hover{background-color:#1b5e20}button.equals{grid-column:span 2}  </style>
+</head>
+<body>
+  <div class="calculator">
+    <input
+      type="text"
+      id="display"
+      autocomplete="off"
+      autocorrect="off"
+      autocapitalize="off"
+      spellcheck="false"
+    />
+    <div class="buttons">
+      <button class="clear">C</button>
+      <button class="operator">(</button>
+      <button class="operator">)</button>
+      <button class="operator">%</button>
+
+      <button class="number">7</button>
+      <button class="number">8</button>
+      <button class="number">9</button>
+      <button class="operator">/</button>
+
+      <button class="number">4</button>
+      <button class="number">5</button>
+      <button class="number">6</button>
+      <button class="operator">*</button>
+
+      <button class="number">1</button>
+      <button class="number">2</button>
+      <button class="number">3</button>
+      <button class="operator">-</button>
+
+      <button class="number">0</button>
+      <button class="operator">.</button>
+      <button class="operator">√(</button>
+      <button class="operator">+</button>
+
+      <button class="operator">^</button>
+      <button class="operator">//</button>
+      <button class="equals">=</button>
+    </div>
+  </div>
+
+  <script>const display=document.getElementById("display");const buttons=document.querySelectorAll(".buttons button");function insertAtCursor(input,textToInsert){const start=input.selectionStart;const end=input.selectionEnd;const text=input.value;input.value=text.slice(0,start)+textToInsert+text.slice(end);const cursorPos=start+textToInsert.length;input.setSelectionRange(cursorPos,cursorPos);input.focus()}
+buttons.forEach((button)=>{button.addEventListener("click",()=>{let btnText=button.innerText;if(btnText.trim()==="="){btnText="="}
+if(btnText==="="){try{let expression=display.value;expression=expression.replace(/\^/g,"**");const intDivRegex=/(\d+|\([^()]*\))\s*\/\/\s*(\d+|\([^()]*\))/;while(intDivRegex.test(expression)){expression=expression.replace(intDivRegex,(match,a,b)=>{return `Math.floor(${a} / ${b})`})}
+expression=expression.replace(/√\(/g,"Math.sqrt(");display.value=eval(expression)}catch{display.value="Error"}}else if(btnText==="C"){display.value="";display.focus()}else{insertAtCursor(display,btnText)}})})</script>
+</body>
+</html>
+'></iframe>
+
+
+</div>
+<div id="hangman" class="content-div">
+  <iframe frameborder="0" srcdoc="<!DOCTYPE HTML>
+<html lang=&quot;pl&quot;>
+<head>
+  <meta charset=&quot;utf-8&quot; />
+  <link href=&quot;https://fonts.googleapis.com/css?family=Inconsolata:400,700&subset=latin,latin-ext&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot;>
+  <style>body{background-color:#000;color:lightgray;font-size:28px;font-family:'Inconsolata';font-weight:700}#pojemnik{width:900px;margin:auto}#plansza{width:900px;margin:50px auto;text-align:center;font-size:48px;min-height:60px}#szubienica,#alfabet{float:left;width:450px;text-align:center;min-height:280px}.litera{width:30px;height:30px;text-align:center;padding:5px;margin:5px;border:3px solid gray;float:left;cursor:pointer;border-radius:15px}.litera:hover{background-color:#222;color:#fff;border:3px solid #fff}.reset{color:green;cursor:pointer;font-size:48px}.reset:hover{color:#fff}</style>
+
+  <script>const hasla=[&quot;Skibidi Toilet&quot;,&quot;Bartuś jest super&quot;,&quot;Sigmaa&quot;];const litery=[&quot;A&quot;,&quot;Ą&quot;,&quot;B&quot;,&quot;C&quot;,&quot;Ć&quot;,&quot;D&quot;,&quot;E&quot;,&quot;Ę&quot;,&quot;F&quot;,&quot;G&quot;,&quot;H&quot;,&quot;I&quot;,&quot;J&quot;,&quot;K&quot;,&quot;L&quot;,&quot;Ł&quot;,&quot;M&quot;,&quot;N&quot;,&quot;Ń&quot;,&quot;O&quot;,&quot;Ó&quot;,&quot;P&quot;,&quot;Q&quot;,&quot;R&quot;,&quot;S&quot;,&quot;Ś&quot;,&quot;T&quot;,&quot;U&quot;,&quot;V&quot;,&quot;W&quot;,&quot;X&quot;,&quot;Y&quot;,&quot;Z&quot;,&quot;Ż&quot;,&quot;Ź&quot;];const yes=new Audio(&quot;data:audio/mp3;base64,//uQZAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAWGluZwAAAA8AAAAYAAAWrwAnJycnOzs7O0xMTExbW1tbampqanZ2dnaAgICAgIqKioqTk5OTm5ubm6SkpKSrq6urtLS0tLS7u7u7xMTExMzMzMzT09PT2tra2uLi4uLi6enp6fHx8fH29vb2+/v7+/////8AAABQTEFNRTMuMTAwBLkAAAAAAAAAADUgJAS4TQAB4AAAFq/DucpqAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA//vQZAAAAkkTzJ094Agq4KmfoYABW6EVLfneAAEdDue3M4AIADHoAVisVisVjJMixCwBQAmCYIRNe97vIlKUpR48fv36vJWJuIeON2c51s4fE4PggGOD//+JwfQCAIAgcB8HwfB8CAgCAIAgD6AAAAIsMDvwAB2u7uaBw9+Y8A8AAFf/MeAGf+44eHvwAAARvoeHjwAAAAAgAAATMDgAAABEWURBEAAAHA2Y/BYZYFsYPleY0jEacmcYPCyEQaZhKMZ6AwF8yM+RrMKAPMAgHMQgrBwzmJoeMLWGTGcUxCEUApiYfl4kOocDTBAOMJiAx8CoMpAMBjMR+GhewGMmqY6GWgxKD0JgjvAQ1lalhYPiVNeqhAeEgIkWw11oZpLX4y21Wtb2XQXgxlobJ1yPREoedGI0X////x1frB2sNefJl9bLPm8t//////zNNFJRN35+Ub/HWu475r///////vA4HAuDAR//mzhkEgG1zf//+k4ZmaAAG1b0AAP8AAAAAAAIioJQMkTnNNOSQt23nCtp0hZcv8Zfe/LWpwuVreHKeVu0z1iMsz/2n0n+djMP1hruX/nhvPrlyaYplQAADqgAPAAApkFQ+YQB4he50d3g4ZGExcZDOR/HYG5TgYFBRhEDN/A7gy52FzQzSVO9zu7yy7Nspf1YAxOcjM3VMrF8xmHig/A4DR2llPe5Y7//3//9PXqYWMAUzAgQAAAjwgAT0AAPCgAZeIli3jXn1UpCnKSjQqFYVwadsEGY92+dPu99jDvOVZVEl3HK+2OBn6l092/zv1+d/9/ewwvWbFqts6JkWvkTAAAzaFACfFnjAYAwgKjDo3TNJZAsCI4AQVEUy4tUoR0xEB1RF+XulCOUan5+nh1rsR1SS6//M51807AuIzm9wBIDaeYoAzQbs7jllpFSRtyckzBxwV8yVfNq8R9/HR1KgMAAEh2AA8YL4JhUOCjpzNKKIMjMTZ2aeVww7jnPTB1r7W5uxdgiGN28sLsmmlgTy8YLPg5Jx5rq5ib+fvPPPQRLk4ZgABfwALgAAJVlYRmCoHmIBxHwSZmLQKGA4JhYSDULxDCMZzB0DlAUFmSvMkSoi/NBGYxDmGVPFP/7kGTDARLxHsrvc4AKS2PZb+zkAQwYmy3u8MnhDo7lPbys/fvVox28wMABEclMaAgwQAHW20Oxlnnn6gXSh+WBAYMW9BoR0AAADTCAA+AAAFxRtWzoCikUvPHPLwLTtMGl4fxKJsIQqtbpfm7rXbs82XViWAAuyYLwmpWoJq0EEnffMVTTfYQYAIAbSYAPgwEB9TIQgeYbnoeerOYqgwAgFMIAdOe41MayKMHgLQBFxU6ndR6azTR1+n1l1NWiUa/l63SQOwAwHAU6rNwHCOgLMyJ6K9JjrP6nFPs/ORCUWo81zh4AAAExCCBOOxyGxAEHPDaQEPxxVsy5WT7N6zAM7XxVWCblY/Kzdho5l5Sujby8OyJVz7wDXWAAA5mWMDcAAACggxUAgYFDCrhOm3AwuGzEY59OBjNMlhNMEQIQAmDINAAC1VlVWZTNHLbfNcr1rlimpabkPFoTgoDh4JF4DgJxG5j///5Wr+Q2Ma+kAAACodTA/AAAqsyiIhIjm0lCp+bBdqNT20IFMZdg17zQMDEmM4Z0BqAbBeMgeFxq1f/7gGTagRLbH8pruR2KQMOZX2mUS0uYfynu5NYo0wnlvbTlnMosHBLXZtCu9MAAAaHcQPgDgQCECQM8CU0GAFw4PgwfAkwmGI4N24zHB4aA5oIkDSFqknlbd5Kl3DVemqTGsvzpZ5iJgGER1qkIsHyyzBsImDUuXMv7y/jYtjw8gbdIwzMel9qqBVDOPgEAcMR8EBMsz9djgv8Yfd0Fk+gpZ1kigMuB3Ug2jcXIgnfhXBpIbBoqQAAASYoQOAAADE0QmAgVMCvI5HczCoSYoIx6Fb9MPAmBwQqxBAEq6cUt8rDB9DTVfp5yQyrmOWNyZbkIAfNlFKDgFgowgAttbQv+Ct6YRQAAhwlAOAAAIGVKPCRng6JsiMMjpElqM74Y8b//4KNEy2zv9sBuMgwj/wME3KACAI0QCghgOEpZAwtH05PQIw7AUWBwwRCY1kjgwiE8FA8paDgGU1Zcul+rIYBfFmEaoskbKQiQ3rhU//twZOgBsq4ZS3uY6Qo6AvlfbHRnSsxlJ+17oiDIDeT5ug2s5pMBis31kZ/UOKNQAACAZ0Xai41UVdHD1qZRHxCDrWexn5L+wiEVxF3CJAcvB92Aj2kHYutAAC/8gcAAAFlgcBpgSBBh0XJ3MfhikApQEQYHBzGWJkmOACA1dwAAFCUu1W52awkUv0mKwGEiayBkNTCiEC87OxohVPUfO8/8ruqvfv3QAAAQAMwHAAADTA4KcgAkJ6KcJA7qRsMBId7yL0tj/umFHFc09Jwj0VwcnjMHyRoelQAAWZeBCwDEI2JQWCFsa8nIEBEgMCh88JfzOwpMCAhAOYGASt7WIDhiVnbZjDakDyh0xEGjVFxLWMMDie89h9JgOcAA8DsusFAN2gQOnXFiEMDThfKLVMQf+pZOza3Bhv/7cGTmAzJwFEr7HOgqLeJpb2zZSwjEUSvOi46oqAmlOaDpnPy02Lrd5sRrcAECaJggOAAADBgDFist0iH5/EWExSQCiIbGjfkLIMSDy/RoBLVdZpsDTgQLC+P6OEp30EIHN/wYOAbKwUKIoHt26gAABwCHA4AAAEA0QEHrHERopLSJviCGdZwwzf0ubIcU/UGgSCv17ecVUoAQDFVCAkAAgMozAQ4mzloYCAIhAQgGpnPHhYNBAJZcYSA4KAyPpfJgsiqyqz/JnIB2I2l4cOTIsAHAAwHp2ZL0AATAALBtqFXPDDBei20oXui9tdANpuQKCM/tkwAAEYJsSOGCJjsNfgwQzXoOJxYUywFSlplBWdKCtepWEt/LdnNNwG9FdMYxXoCBXgAcQAAAmgHzCE5IRW2b/XzbNUr/+2Bk+oMycxpJ66PrqDEieT9sWmcITFErzguOoJiJ5RGxZSxwGopAkL/9yhAAmKWWckArA/N5gYKaUwDOSuMhFDIEFpVMBfaU3Gf6KxhhWYgjoeUK6jrgYR4AGzbIImIlB00PakQV//+fgDTV0xcK/tyhAAAAACkSbtgIaxDNAYgEMO81uVQkSLUiYVPJqMH0VtU+sxQwD+5o8hv7Xda57ggVwAHigAAAC4hXPQziH7UU5//+NcG4cwOD9+7Q0WFqjJzKDgd1eQteFlRVhOOGGaacyBAU6lcutRKR+lRSMSlUUQOoRh0pq+AAhAAAWuACRA7cGyH1nGW3Wddn2By0fa3DGAj/+1Bk9wMyFBPLe4PjqCoieV9ouUsIDE8vzguQYFsJKDkgHZC/0JEAADAUxyfUR6O1N+mWgxk0bWlAJ1OpBViTuqbOLPLSb9S1HaywAb6o9P7gYRoAHCAAAAIMSjmPQL3TglL//2uD1cpUFf/BJgEoBgutwCtp3tO+ZgxxhhrGIm8CgppIXdWGcmNYui/9SzCoshDCcYjeQGDWABggAwIBliz5K+0WLll//+nBxQrWCA/9AJMAADHCAWrBjQfF6HyCFzSmN1hWIxVyziw7cIDq//tQZOsBMZMT0XMjm5AZIkpOPAVkBfxPReyKboBXCSj5h5RAZ4a0C/WUAAPNEBR3wgMIAADBwAAAGwn+DvEyvS8X7/roC/As/KbhX/oSACQTE2EluBNMSigjTBkL5BzKvg5VNZpr9SG2f/jBmYHbG6YpRD2AgjAAME2AYYwkoeJnhppv//VNQMwRaugJCt/gocAAABWkHRqaG3iEfSNCEG2AySJgLpHEICU1a8y1+rKFf+5Bf/gEVsaQD19eZKD4ABvAAAFtApli4IGpddrfrv/7QGT4AxGXFFD7IsOgGEJKXzwlLkYgUUPNYkiAYonnvPBBXIE2n2LAr/4LFABmoGtG4QMpOYSBQNkdUJnK7QGqsYxBQeXa5UZyWk39nPbgvj6xnFYoCCrgBwL28FfApR9d59/WB7PE4aq0ORz+ALFAAAAZiOAPGKRHpm5Fkz0QGqlaY6SMoqEpS0qI1t7xys2v+qJkvaYDj6ioAAAACAAAAFuG7YwS8a39/iafgqC/0Asxgc0I//tAZPaBEXsT0PMZkNAXgko/PCUuBdBPRcziRsBcCSf5gRyYZepmSBSLc4GATBRjCmG+JhbQE42owq93CkikXcyAP7xKRthgYMOAD9GRDD4DU0v3utfhZPHAqtYpCv0AwUAAAAGgBZNnwx6YiUpKoQ7iSPxQHOrWBSKA5dMus91W0Fu/lAHFeOmbfuBhAAAA4AABcQUo1C9Brdpy/gyvmGhn+AKGADXzCCdsEKAbWKIBwvIYzz7/+0Bk+QMxcBPQcyCTkBhieg88B1cFXE9FzIZOoF0J6DjxHJyg4piJjhIAVjP7Lua1Hc4BVVDaj7ehqFqAAtwfuDNG5XGc+v4F+VXnLiz/AKEAAAAMATOxlIBVAafAxhDJwhwKhrGMoLQDFlVTNZf6ly/9SZhnQC8nEQ0mAgoAAAOAAABfhynVUDm2O/Sb1+sJBhVW9TkdywCgqcI9XgGZzPkdsGBGXKbCa9UpGw0FfBf/zkA8wP/7MGT9gVGLFFD7IsOgFiJKPjQKZQXET0Xs4ibAUonnfPA1ZAI0FCf31AMIEZBakQrgVbtSr6AvwLOq+hoM/gDDQAAAEciZVb5NqRQzhdsCSCMiThiy1U1m1gazf5oJlzMwA8brFKIaQoAAAAA4AAAA9BfhDAtuazPEGHN7JQV2gFjgAxDTHkbiK3HXO7zZhy8QrzAKhUuBwqmzXf/7QGT0A1F1E8/7IMOQE+JKPzwCSgV8T0HNAi5AUInm/PA1ZJdZ7ugb7AN08oMRnVfhuODABIa7LQImVFv/rvrpTSv9AMHAAAAdAuuuQxezvOfsFSHKgZhTkgpJdJdpYrlUuX3Zz2kFUfiIFbIEBgAACcAAAAbQykKgC3N0+vTBtZOOxtYqHboAsQAAIEYoK14wSEFhHNDk5ojgOjKXGUJoZQzKquW/3jlZpv+qHgvacHGkAwdc//swZPuBUXsUUHsge5AUYkoONAdZBXxRQeyCDkBGCSh88B1lARGOAO8Oq9Nzff4JC0c95Uoc2wDBQAAAEBIyhBpIwFJY41wwazEXb0rIY+2ajvd5+7VhNv8gCPvkujfawYAAAA4AAABIJfCejMMlv/02XBQF5QBQgAflqbaGaCGvQey0lUJVpeDrk+WTPzLse/WpZzOg24uLC3w0//tAZPaDcX8T0HsaaGAZInmPYA1ZBOBPPcyKDMBEiec40B1klio1IPArDWu/+5bWKhvKAKEAAAALhAQt0hBWaw0VLvGBGYr77G0Kj8sVyodyx/WozzgJ6oqT76MFAAAFwAAABqbifAOJw5x9qr9AE+VuelclZA3MGVHEjDimY2uCuFimKAuVrUM02Ov1JmGZgVE4wGxjcAsAD5hsUI/K21v6gAKKtyoLoACxQAAAGurGckArDa//+zBk/oFRYxPQ+yCLmBTCed8wB0sFkFE97IIuQDuBaXxnrAAKSNMCQxQHWZ3DFfD/70f/wABzTBN71ZMAAAAF4AAAGNR0wZQunDP8fzgHdUpPbpY3cgEjAB9mMtgHcxRiSiggN9BC8gCEWDQ7LrL//TW4AZPCqJeBgTgBFJEQII7tMuZgPycbWpk8CqkAocAAAC1Jm3Mw85A4QXb/+zBk/AFRYBNQeyCLmhgCea8sEFkFwE837QMOQEqJpnzwNWTBNxYGloOOYjD0ttF/+UxQ3/MhjbOlb4qMllcAAAAJAAAAKoGYGFRV8BLJhUlZcABhgBKYlHSFAPHfpn48AcdYcUnS/2OX9S6yoBxJRNikwYsGA4AnDhJKZV/+WupRxEAACAAAAfnGFjnnDluwnOfis15/wkwSkHb/+zBk9YFxXRPO+yB7kBOAWk8Z7wEFAE857IIOQDMBqTiVrARfXWwhQMAAAAAAAlKoJnk//lS5IA/6ZHU6hXMp26GWlRWuYV24ApccsU3QIGASaV//TUxBTUUzLjEwMFVVVVVVVVVVVVVVVVVVVVVVVVVVVTyQAgAAPlBN3ICq9e4UsxP/+giClqv/yqpMQU1FMy4xMDCqqqqqqqr/+zBk94dRWRPN+yCDkBbCSg9MCllEdE83zIIOQEAJJ3zwKSyqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqkxBTUUzLjEwMKqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqr/+zBk+IFRORPNeyB7IBfCea9kDUsEuE817IWswESJ5bTQNSyqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqr/+zBk+YFRYBPMeyLDOhICSb8oB0sEjFEp7IGsgDSBZrwHvACqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqr/+xBk/YVw7hRGawB6wA8AWU4B6wADGE8PLIMLIByBY5AAJACqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqv/7EGTqBfBzEkXJYCrIA+BYcAAiAAC8AxSggAAgAAA/wAAABKqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq//sQZN2P8AAAf4AAAAgAAA/wAAABAAABpAAAACAAADSAAAAEqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqo=&quot;);const no=new Audio(&quot;data:audio/mp3;base64,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yqNRLSx17qCJENoiuoGy9HxYRgiP7lw/IYDi7LGcMkWPWrR+GXZoIedqW0u66wiv//PEZPIu/hlfj83oAAAAA0gBgAAAE62vwOyyMSiH529HV1s3WpYq3HIeRY7L23Yg/kxPxiljOUahqllMt1dxrT0a3GXfftxGUOoxNl7vqAOw4ix13uu4kokDltbftiDWH4d+V16WG424jWIcceXz85/wzco6bWUqoYzDuUqjWN/98lu/+MSe/RVbteGIxSNfcN/2CORFHfhuRzgJKVyOxyORup1OJtNusxuCzQARMXGI04MToxTNmCExULzC4EMahExEOjKgPMHiAw+FjFIeMOBIwwCjCISGQEFhTQHMg0/YznfB1YwGWhLMlzi4xZJpJvGGIILEGeOsYuUgCbiu1pL7SugCAw4MHEFoEuETWCwYxKD5p2mdR1dqwqANIte6ABQBtIiu2QyR2p90nKXNALWWGw0oOsO66gi7HkVPm/sUq2o7PO85UZf2Ge8rZMPdddDLIEXezuLs4xmqu4jluAqWXS6ZjMZppVDUzDrszTkQI19rcPtcch3Gvv+87+Yy//PEZOUsphlZL85kAAAAA0gBgAAAmtlEqtLDNamhqUw87VLKZT3P/yrXZTLaCmciMP++8Du5DEsi7/xt2IYon/d+MwzKo1DVWUwzKo07UpjMMxKHoaiMOw7NSqNUNWlyrX8Na3My3f/adxxKRx4vD7sQ5Mw++9uHIxx/4Dk/f+GpmMuzTRp/pmUvrKo0/1WlhmtGpdlVAJluTS80fPDts0NgiwyMfzQxvMhBUkABgsIGFQ0YOBokAXScbeFqIv7a+q7K7Wuy3CaBqOB4FxxIKQFQW2Kiq0wsPJFhYOgbHcqS4NRWmKFjra+VD1AbB8Km0zSqq3KqKmr/DXJIqbqtMdfLMzXysVtlHSqw0iorXAstbMzMyqqrX/szSSKm6qv/szXqq//DCwsLLX///wzMUq1+qq2qr//s1yHIKQbB9aioqtcMzMzfKqq6kirRRSoGSOy10ADtEIwfcjAykk1aFRqNxOiURNo/K/9GoAI8aDFLjS/9yhgoMTVMTEFNRTMu//OEZOoXBg0+L+4gAIAAA0gBwAAAMTAwVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV//NEZNwFLG8bLCTCZIAAA0gAAAAAVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV//MUZPwAAAH+AAAAAAAAA0gAAAAAVVVV&quot;);let haslo=hasla[Math.floor(Math.random()*hasla.length)].toUpperCase();let haslo1=haslo.replace(/[^\s]/g,&quot;-&quot;);let ile_skuch=0;String.prototype.ustawZnak=function(miejsce,znak){return this.substr(0,miejsce)+znak+this.substr(miejsce+1)}
+function wypiszHaslo(){document.getElementById(&quot;plansza&quot;).innerHTML=haslo1}
+function start(){let tresc=&quot;&quot;;litery.forEach((litera,i)=>{tresc+=`<div class=&quot;litera&quot; onclick=&quot;sprawdz(${i})&quot; id=&quot;lit${i}&quot;>${litera}</div>`;if((i+1)%7===0)tresc+='<div style=&quot;clear:both;&quot;></div>'});document.getElementById(&quot;alfabet&quot;).innerHTML=tresc;wypiszHaslo()}
+function sprawdz(nr){let trafiona=!1;const lit=litery[nr];for(let i=0;i<haslo.length;i++){if(haslo[i]===lit){haslo1=haslo1.ustawZnak(i,lit);trafiona=!0}}
+const el=document.getElementById(&quot;lit&quot;+nr);el.style.cursor=&quot;default&quot;;el.onclick=null;if(trafiona){yes.play();el.style.background=&quot;#003300&quot;;el.style.color=&quot;#00C000&quot;;el.style.border=&quot;3px solid #00C000&quot;}else{no.play();el.style.background=&quot;#330000&quot;;el.style.color=&quot;#C00000&quot;;el.style.border=&quot;3px solid #C00000&quot;;ile_skuch++;const obraz=`https://zagraj-w-wisielca.pl/img/s${ile_skuch}.gif`;document.getElementById(&quot;szubienica&quot;).innerHTML=`<img src=&quot;${obraz}&quot; alt=&quot;&quot; />`}
+wypiszHaslo();if(haslo===haslo1){document.getElementById(&quot;alfabet&quot;).innerHTML=`Tak jest! Podano prawidłowe hasło: ${haslo}<br><br><span class=&quot;reset&quot; onclick=&quot;location.reload()&quot;>JESZCZE RAZ?</span>`}else if(ile_skuch>=9){document.getElementById(&quot;alfabet&quot;).innerHTML=`Przegrana! Prawidłowe hasło: ${haslo}<br><br><span class=&quot;reset&quot; onclick=&quot;location.reload()&quot;>JESZCZE RAZ?</span>`}}
+window.onload=start</script>
+</head>
+<body>
+  <div id=&quot;pojemnik&quot;>
+    <div id=&quot;plansza&quot;></div>
+    <div id=&quot;szubienica&quot;><img src=&quot;https://zagraj-w-wisielca.pl/img/s0.gif&quot; alt=&quot;&quot; /></div>
+    <div id=&quot;alfabet&quot;></div>
+    <div style=&quot;clear:both;&quot;></div>
+  </div>
+</body>
+</html>
+"></iframe>
+</div>
+
+
+<script>const divIds=["poland","time","calculator","hangman"];let currentIndex=0;function showOnlyCurrent(){divIds.forEach((id,index)=>{const elem=document.getElementById(id);if(index===currentIndex){if(id==="time"||id==="poland"){elem.style.display="flex"}else{elem.style.display="block"}}else{elem.style.display="none"}})}
+document.getElementById("toggleButton").addEventListener("click",function(){currentIndex=(currentIndex+1)%divIds.length;showOnlyCurrent()});showOnlyCurrent()</script>
+
+
+
+</body>
+</html>
